@@ -9,6 +9,7 @@ dog2 = Dog("foxy" , "husky")
 print(dog1.name, "," ,dog1.breed,"," ,dog1.species)
 print(dog2.name, "," ,dog2.breed,"," ,dog2.species)
 
+
         
     
 
