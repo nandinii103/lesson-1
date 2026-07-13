@@ -1,0 +1,20 @@
+from tkinter import * 
+import datetime
+window = Tk()
+window.title("greeting app")
+window.geometry("500x350")
+label = Label(window ,text= "Enter your name")
+label.pack()
+name_entry = Entry(window)
+name_entry.pack()
+output = Text(window , height= 5 , width= 40)
+output.pack()
+def greet():
+    name = name_entry.get()
+    today = datetime.date.today()
+    output.delete("1.0" , END)
+    output.insert(END , "hello " + name + "! \n" )
+    output.insert(END , "todays date: " + str(today))
+button = Button(window , text= "greet me" , command= greet)
+button.pack()
+window.mainloop()
