@@ -1,36 +1,41 @@
 from textblob import TextBlob
-print("welcome to the sentiment chatbot")
+
+print("Welcome to the sentiment chatbot")
+
 history = []
-statisctics = {"positve": 0 , "negative": 0 , "neutral": 0 }
+statistics = {"positive": 0, "negative": 0, "neutral": 0}
+
 while True:
-    message = input("/nEnter a sentence(or 'exit' , 'stats' , 'reset'):")
+    message = input("\nEnter a sentence (or 'exit', 'stats', 'reset'): ")
     command = message.lower()
-if command == "exit":
-    print("\nThank you for using this chatbot!")
-    print("final stats:" , statisctics)
-    break
-if command == "stats":
-    print("stats" , statisctics)
-    countinue
-if command == "reset":
-    statisctics = {"positve": 0 , "negative": 0 , "neutral": 0 }
-    print("data reset" )
-    continue
+
+    if command == "exit":
+        print("\nThank you for using this chatbot!")
+        print("Final stats:", statistics)
+        break
+
+    if command == "stats":
+        print("Stats:", statistics)
+        continue
+
+    if command == "reset":
+        statistics = {"positive": 0, "negative": 0, "neutral": 0}
+        print("Data reset.")
+        continue
 
     blob = TextBlob(message)
     polarity = blob.sentiment.polarity
+
     if polarity > 0:
         sentiment = "positive"
-        print("positive sentiment")
+        print("Positive sentiment")
     elif polarity < 0:
         sentiment = "negative"
-        print("negative senitment")
+        print("Negative sentiment")
     else:
         sentiment = "neutral"
-        print("neutral sentiment")
+        print("Neutral sentiment")
 
-print("sentiment: " , sentiment)
-statisctics[sentiment] += 1
+    print("Sentiment:", sentiment)
+    statistics[sentiment] += 1
 
-    
-        
